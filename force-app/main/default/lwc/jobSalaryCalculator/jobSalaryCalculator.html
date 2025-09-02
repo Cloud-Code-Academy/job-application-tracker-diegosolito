@@ -1,0 +1,54 @@
+<template>
+    <lightning-card title="Salary Calculator">
+        <lightning-input 
+            type="number" 
+            name="inputSalary" 
+            label="Enter gross Salary" 
+            value={salary}
+            onchange={handleSalaryChange}
+            formatter="currency" 
+            step="0.01"
+            class="slds-m-horizontal_x-small">
+        </lightning-input>
+        <lightning-button 
+            variant="brand" 
+            label="Calculate" 
+            title="Primary action" 
+            onclick={handleClick} 
+            class="slds-m-left_x-small">
+        </lightning-button>
+        
+        <div slot="footer">
+            <h1 class="slds-text-heading_large slds-text-title_caps slds-text-align_center">Calculation Results</h1>
+            
+            <div class="slds-text-align_center slds-m-top_medium">
+                
+                <div class="slds-m-bottom_small">
+                    <div class="slds-text-body_small slds-text-color_weak">Net Annual Pay</div>
+                    <div class="slds-text-heading_medium">{formattedNetAnnualPay}</div>
+                </div>
+                
+                <div class="slds-m-bottom_small">
+                    <div class="slds-text-body_small slds-text-color_weak">Net Monthly Pay</div>
+                    <div class="slds-text-heading_medium">{formattedNetMonthlyPay}</div>
+                </div>
+                
+                <div class="slds-m-bottom_small">
+                    <div class="slds-text-body_small slds-text-color_weak">Federal Income Tax</div>
+                    <div class="slds-text-heading_small">{formattedFederalTax}</div>
+                </div>
+                
+                <div class="slds-m-bottom_small">
+                    <div class="slds-text-body_small slds-text-color_weak">Social Security Tax</div>
+                    <div class="slds-text-heading_small">{formattedSocialSecurityTax}</div>
+                </div>
+                
+                <div class="slds-m-bottom_small">
+                    <div class="slds-text-body_small slds-text-color_weak">Medicare Withholding</div>
+                    <div class="slds-text-heading_small">{formattedMedicareWithholding}</div>
+                </div>
+                
+            </div>
+        </div>
+    </lightning-card>
+</template>
